@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact us | Maple Road Flower Shop</title>
+<meta name="description" content="Contact Maple Road Flower Shop in Your City, Oregon. Send an order or a question and we will reply within one business day.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: slim top bar, full-width photo banner, left-aligned intro with hours, product grid, reviews, two-column contact. */
+:root {
+  --bg: #f8f5f4;
+  --surface: #ffffff;
+  --ink: #2a1c20;
+  --muted: #6b5a5f;
+  --accent: #9b2c4a;
+  --accent-ink: #ffffff;
+  --highlight: #e8a33d;
+  --line: #e4d9db;
+  --display: "Bricolage Grotesque", "Trebuchet MS", sans-serif;
+  --body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #1a1316;
+    --surface: #241a1e;
+    --ink: #f4eaec;
+    --muted: #b9a5ab;
+    --accent: #f08aa4;
+    --accent-ink: #2a0d16;
+    --highlight: #f0b559;
+    --line: #3a2a30;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #1a1316;
+  --surface: #241a1e;
+  --ink: #f4eaec;
+  --muted: #b9a5ab;
+  --accent: #f08aa4;
+  --accent-ink: #2a0d16;
+  --highlight: #f0b559;
+  --line: #3a2a30;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.6;
+}
+h1, h2, h3 { font-family: var(--display); line-height: 1.15; margin: 0; text-wrap: balance; }
+p { margin: 0; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--highlight); outline-offset: 2px; }
+.wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+
+.sample-note {
+  background: var(--highlight);
+  color: #1b1405;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  padding: 8px 16px;
+}
+
+header.top { border-bottom: 1px solid var(--line); background: var(--surface); }
+header.top .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px; padding-top: 14px; padding-bottom: 14px; }
+.logo { font-family: var(--display); font-weight: 800; font-size: 22px; text-decoration: none; letter-spacing: -0.01em; }
+.logo span { color: var(--accent); }
+[hidden] { display: none !important; }
+header.top { position: relative; }
+.menu-btn {
+  display: inline-flex; flex-direction: column; justify-content: center; gap: 5px;
+  width: 44px; height: 44px; padding: 0 11px; cursor: pointer;
+  background: transparent; border: 1px solid var(--line); border-radius: 8px;
+}
+.menu-btn span { display: block; height: 2px; background: var(--ink); border-radius: 2px; }
+.menu-panel {
+  position: absolute; right: 20px; top: calc(100% - 4px); z-index: 10; min-width: 200px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+  padding: 8px; display: grid; gap: 2px; box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+.menu-panel a { text-decoration: none; font-weight: 500; padding: 10px 12px; border-radius: 8px; }
+.menu-panel a:hover { background: var(--bg); }
+.menu-panel a.primary { color: var(--accent); font-weight: 600; }
+.page { padding: 48px 0 64px; }
+.page h1 { font-size: clamp(30px, 5vw, 44px); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 8px; }
+.back { display: inline-block; margin-bottom: 20px; color: var(--muted); font-weight: 500; text-decoration: none; }
+.back:hover { color: var(--ink); }
+
+.banner { margin: 0; background: var(--surface); }
+.banner img { display: block; width: 100%; height: clamp(240px, 42vw, 440px); object-fit: cover; object-position: 50% 45%; }
+
+.hero { padding: 48px 0 56px; }
+.hero .wrap { display: grid; gap: 32px; grid-template-columns: 1.3fr 1fr; align-items: center; }
+.eyebrow { font-weight: 600; color: var(--accent); font-size: 15px; margin-bottom: 12px; }
+.hero h1 { font-size: clamp(32px, 5.5vw, 52px); font-weight: 800; letter-spacing: -0.02em; }
+.hero p.lead { margin-top: 18px; color: var(--muted); max-width: 52ch; font-size: 19px; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.btn {
+  display: inline-block; font: inherit; font-weight: 600; text-decoration: none; cursor: pointer;
+  padding: 12px 22px; border-radius: 8px; border: 2px solid var(--accent);
+  background: var(--accent); color: var(--accent-ink);
+}
+.btn.ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+.btn:hover { filter: brightness(1.08); }
+
+.hours { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 22px; }
+.hours h2 { font-size: 20px; margin-bottom: 12px; }
+.hours dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 6px 16px; font-variant-numeric: tabular-nums; }
+.hours dt { color: var(--muted); }
+.hours dd { margin: 0; text-align: right; font-weight: 500; }
+
+section.block { padding: 56px 0; border-top: 1px solid var(--line); }
+section.block > .wrap > h2 { font-size: clamp(26px, 4vw, 36px); margin-bottom: 8px; }
+.sub { color: var(--muted); margin-bottom: 28px; max-width: 56ch; }
+
+.grid { display: grid; gap: 16px; grid-template-columns: repeat(3, 1fr); }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 8px; }
+.card .top-row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.card h3 { font-size: 20px; }
+.price { font-weight: 600; color: var(--accent); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.card p { color: var(--muted); font-size: 16px; }
+
+.review { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--highlight); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 12px; margin: 0; }
+.review .stars { color: var(--highlight); letter-spacing: 2px; font-size: 18px; }
+.review footer { font-size: 14px; color: var(--muted); }
+.tag { display: inline-block; font-size: 12px; font-weight: 600; border: 1px solid var(--line); border-radius: 99px; padding: 1px 8px; margin-left: 6px; color: var(--muted); }
+
+.contact-grid { display: grid; gap: 32px; grid-template-columns: 1fr 1.2fr; align-items: start; }
+.details { display: grid; gap: 14px; }
+.details strong { display: block; font-size: 14px; color: var(--muted); font-weight: 600; }
+form { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 22px; display: grid; gap: 14px; }
+label { font-weight: 600; font-size: 15px; display: grid; gap: 6px; }
+input, textarea {
+  font: inherit; color: var(--ink); background: var(--bg);
+  border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; width: 100%;
+}
+textarea { min-height: 110px; resize: vertical; }
+#form-status { font-size: 15px; color: var(--accent); min-height: 1.4em; }
+
+footer.site { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--muted); font-size: 15px; }
+
+@media (max-width: 760px) {
+  .hero { padding: 36px 0 36px; }
+  .hero .wrap, .contact-grid { grid-template-columns: 1fr; }
+  .grid { grid-template-columns: 1fr; }
+  section.block { padding: 40px 0; }
+}
+@media (min-width: 761px) and (max-width: 900px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<div class="sample-note">Sample website with placeholder text, prices and reviews. Replace everything with the real business details before going live.</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="index.html">Maple Road <span>Flower Shop</span></a>
+    <button class="menu-btn" id="menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menu-panel">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="menu-panel" id="menu-panel" aria-label="Main" hidden>
+      <a href="index.html">Home</a>
+      <a href="index.html#products">Flowers</a>
+      <a href="index.html#reviews">Reviews</a>
+      <a class="primary" href="contact.html">Contact us</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="page" id="contact">
+    <div class="wrap">
+      <a class="back" href="index.html">← Back to home</a>
+      <h1>Contact us</h1>
+      <p class="sub">Send an order or a question and we'll reply within one business day.</p>
+      <div class="contact-grid">
+        <div class="details">
+          <div><strong>Address</strong>123 Maple Road, Your City, OR 97000</div>
+          <div><strong>Phone</strong>(503) 555-0100</div>
+          <div><strong>Email</strong>hello@example.com</div>
+          <div><strong>Delivery</strong>Local delivery available. Order by noon for same-day pickup.</div>
+        </div>
+        <form id="contact-form" novalidate>
+          <label for="name">Your name
+            <input id="name" name="name" type="text" autocomplete="name" required>
+          </label>
+          <label for="email">Email
+            <input id="email" name="email" type="email" autocomplete="email" required>
+          </label>
+          <label for="message">What would you like to order?
+            <textarea id="message" name="message" required></textarea>
+          </label>
+          <button class="btn" type="submit">Send message</button>
+          <p id="form-status" role="status"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">© Maple Road Flower Shop. Sample site for demonstration.</div>
+</footer>
+
+<script>
+(function () {
+  var btn = document.getElementById('menu-btn');
+  var panel = document.getElementById('menu-panel');
+  function setMenu(open) {
+    panel.hidden = !open;
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  btn.addEventListener('click', function (e) { e.stopPropagation(); setMenu(panel.hidden); });
+  panel.addEventListener('click', function (e) { if (e.target.tagName === 'A') setMenu(false); });
+  document.addEventListener('click', function (e) { if (!panel.contains(e.target)) setMenu(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+})();
+
+document.getElementById('contact-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var status = document.getElementById('form-status');
+  var name = document.getElementById('name').value.trim();
+  var email = document.getElementById('email').value.trim();
+  var message = document.getElementById('message').value.trim();
+  if (!name || !email || !message) {
+    status.style.color = 'inherit';
+    status.textContent = 'Please fill in your name, email and message.';
+    return;
+  }
+  status.style.color = '';
+  status.textContent = 'Demo only: nothing was sent. On the live site this goes to the owner’s email.';
+});
+</script>
+</body>
+</html>
